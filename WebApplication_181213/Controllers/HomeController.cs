@@ -26,5 +26,12 @@ namespace WebApplication_181213.Controllers
 
             return View();
         }
+
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Welcome!";
+
+            return View();
+        }
     }
 }

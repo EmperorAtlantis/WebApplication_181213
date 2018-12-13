@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<div class="pl-10 pt-5 pr-10 pb-2 bg-darkBlue">
+    <h2 class="fg-white">Login</h2>
+</div>
+
+<div>
+    <form class="ml-10 pl-10" action="//Login/Verify?" method="get" style="width:300px">
+        <input id="user" class="m-2 fg-white" type="text" data-role="materialinput"
+               placeholder="Enter your UserName"
+               data-icon="<span class='mif-user'>"
+               data-label="User Name"
+               data-informer="Enter a Username"
+               data-cls-line="bg-cyan"
+               data-cls-label="fg-cyan"
+               data-cls-informer="fg-lightCyan"
+               data-cls-icon="fg-darkCyan"
+               name="UserName" value="" />
+        <input id="pwd" class="m-2 fg-white" type="text" data-role="materialinput"
+               placeholder="Enter your PassWorld"
+               data-icon="<span class='mif-fingerprint'>"
+               data-label="PassWorld"
+               data-informer="Enter a PassWorld"
+               data-cls-line="bg-cyan"
+               data-cls-label="fg-cyan"
+               data-cls-informer="fg-lightCyan"
+               data-cls-icon="fg-darkCyan"
+               name="UserName" value="" />
+        @*<input type="submit" />*@
+        <button id="clear" class="button alert mr-4"><span class="mif-cross fg-white mr-1"></span>清空</button>
+        <button id="submit" class="button success"><span class="mif-checkmark fg-white mr-1"></span>登录</button>
+    </form>
+
+    @*<form action="//Login/Verify" method="post">
+            username<input type="text" name="username" value=""/>
+            <input type="submit" />
+        </form>*@
+    <script>
+        var user = $("#user").text();
+        
+        var pwd = $("#pwd").text();
+        //$("#submit").click(
+        //    function () {
+        //        console.log("点击" + user + "|" + pwd);
+        //        if (user == null || user == "") {
+        //            alert("用户名不能为空");
+        //            return false;
+        //        } else {
+        //            $("form").submit();
+        //        }
+        //    }
+        //)
+        $("#clear").click(
+            function () {
+                console.log("点击" + user.toString() + "|&&&&&&&&&&&&&&&&&&&&&&&&" + pwd.toString());
+                $("#user").val("");
+                $("#pwd").val("");
+                return false;
+            }
+        )
+    </script>
+</div>
+
+
