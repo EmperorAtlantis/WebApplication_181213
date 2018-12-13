@@ -38,22 +38,24 @@
             <input type="submit" />
         </form>*@
     <script>
-        var user = $("#user").text();
+        $("#submit").click(
+            function () {
+                var user = $("#user").val();
+                var pwd = $("#pwd").val();
+                console.log("点击" + user + "|" + pwd);
+                if (user == null || user == "") {
+                    alert("用户名不能为空");
+                    return false;
+                } else {
+                    $("form").submit();
+                }
+            }
+        )
         
-        var pwd = $("#pwd").text();
-        //$("#submit").click(
-        //    function () {
-        //        console.log("点击" + user + "|" + pwd);
-        //        if (user == null || user == "") {
-        //            alert("用户名不能为空");
-        //            return false;
-        //        } else {
-        //            $("form").submit();
-        //        }
-        //    }
-        //)
         $("#clear").click(
             function () {
+                var user = $("#user").val();
+                var pwd = $("#pwd").val();
                 console.log("点击" + user.toString() + "|&&&&&&&&&&&&&&&&&&&&&&&&" + pwd.toString());
                 $("#user").val("");
                 $("#pwd").val("");
