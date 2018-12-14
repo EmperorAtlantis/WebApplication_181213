@@ -10,6 +10,6 @@ namespace WebApplication_181213.Models.DataModel.Dao
     {
         
         List<T> Query<T>();
-        
+        List<T> QueryAll<T>();
     }
 }
