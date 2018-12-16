@@ -7,38 +7,46 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Dapper;
+using System.Collections;
+using System.IO;
 
 namespace WebApplication_181213.Models.DataModel.Dao
 {
-    public class UsersDao:IDao
+    public class UsersDao : IDao<Users>
     {
-        public List<T> Query<T>()
+        
+
+        public List<Users> Query()
         {
             throw new NotImplementedException();
         }
 
         public List<Users> QueryAll()
         {
-            using(IDbConnection db
-                =new SqlConnection(ConfigurationManager.ConnectionStrings["DataDemo"].ConnectionString))
+            using (IDbConnection db
+                = new SqlConnection(ConfigurationManager.ConnectionStrings["DataDemo"].ConnectionString))
             {
-                return (List<Entity.Users>)db.Query("select * from Users");
+                IEnumerable ts= db.Query<Users>("select * from Users");
+                return (List<Users>)ts;
             }
             
         }
 
-        public List<Entity.Users> QueryAll<Users>()
+        public Users QueryOne()
         {
-            using (IDbConnection db
-                = new SqlConnection(ConfigurationManager.ConnectionStrings["DataDemo"].ConnectionString))
-            {
-                return (List<Entity.Users>)db.Query("select * from Users");
-            }
+            return new Users();
         }
 
-        List<T> IDao.QueryAll<T>()
+        public void Test()
         {
-            throw new NotImplementedException();
+            FileStream file = new FileStream(@"D:\vs\ASP.NET\WebApplication_181213\WebApplication_181213\test.txt", FileMode.OpenOrCreate);
+            StreamReader reader = new StreamReader(file);
+            StreamWriter writer = new StreamWriter(file);
+            writer.Write("");
+            writer.Flush();
+            writer.Close();
+            file.Close();
         }
+        
     }
 }

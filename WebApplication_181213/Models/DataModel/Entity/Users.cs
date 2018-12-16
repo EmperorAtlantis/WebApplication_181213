@@ -8,11 +8,17 @@ namespace WebApplication_181213.Models.DataModel.Entity
 {
     public class Users
     {
-        private long Id { get; set; }
+        public Users(){ }
+        public Users(string name, string pwd)
+        {
+            this.Name = name;
+            this.Pwd = pwd;
+        }
+        public long Id { get; set; }
 
-        private string Name { get; set; }
+        public string Name { get; set; }
 
-        private string Pwd { get; set; }
+        public string Pwd { get; set; }
 
         public override string ToString()
         {

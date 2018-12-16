@@ -3,5 +3,24 @@
     ViewBag.Title = "Verify";
 }
 
-<h2>Verify</h2>
 
+<div class="pl-10 pt-5 pr-10 pb-2 bg-darkBlue">
+    <h2 class="fg-white">Verify</h2>
+</div>
+
+
+<div data-role="tile" data-size="medium" data-effect="hover-zoom-right">
+    <div class="slide-front">
+        <span class="mif-cross"></span>
+    </div>
+    <div class="slide-back d-flex flex-justify-center flex-align-center p-4 op-mauve">
+        @*@ViewBag.CheckUser*@
+        @if(ViewBag.CheckUser){
+        <p class="text-center">登录成功</p>
+        }else{
+        <p class="text-center">登录失败</p>
+        }
+
+    </div>
+    <span class="branding-bar fg-dark">hover-zoom-right</span>
+</div>

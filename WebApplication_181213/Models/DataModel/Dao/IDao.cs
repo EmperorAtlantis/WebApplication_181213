@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WebApplication_181213.Models.DataModel.Dao
 {
-    public interface IDao
+    public interface IDao<T>
     {
         
-        List<T> Query<T>();
-        List<T> QueryAll<T>();
+        List<T> Query();
+        List<T> QueryAll();
+        T QueryOne();
     }
 }
