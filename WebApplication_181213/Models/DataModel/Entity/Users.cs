@@ -9,11 +9,13 @@ namespace WebApplication_181213.Models.DataModel.Entity
     public class Users
     {
         public Users(){ }
+
         public Users(string name, string pwd)
         {
-            this.Name = name;
-            this.Pwd = pwd;
+            Name = name;
+            Pwd = pwd;
         }
+
         public long Id { get; set; }
 
         public string Name { get; set; }
